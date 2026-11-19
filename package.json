@@ -1,0 +1,20 @@
+{
+  "name": "agroforum-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agroforum 2026 landing site (static HTML/CSS/JS in site/) and local tooling",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "node serve.mjs 3000",
+    "shot": "node screenshot.mjs http://localhost:3000",
+    "check": "node scripts/check-i18n.mjs",
+    "e2e": "node scripts/e2e.mjs",
+    "axe": "node scripts/axe.mjs kk ru zh uz ky",
+    "og": "node scripts/og.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.1",
+    "puppeteer-core": "^24.0.0"
+  }
+}

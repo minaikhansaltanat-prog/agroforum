@@ -1,0 +1,21 @@
+// Aggregates main-thread trace events by name during page load (CPU 4x throttled). Server on :3000.
+import puppeteer from "puppeteer-core";
+import { existsSync, readFileSync, rmSync } from "node:fs";
+const candidates = [process.env.CHROME_PATH, "C:/Program Files/Google/Chrome/Application/chrome.exe", "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe", "/usr/bin/google-chrome"].filter(Boolean);
+const browser = await puppeteer.launch({ executablePath: candidates.find((p) => existsSync(p)), headless: true });
+const page = await browser.newPage();
+await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true });
+const cdp = await page.createCDPSession();
+await cdp.send("Emulation.setCPUThrottlingRate", { rate: 4 });
+await page.tracing.start({ path: "trace.json", categories: ["devtools.timeline", "disabled-by-default-devtools.timeline"] });
+await page.goto(process.argv[2] || "http://localhost:3000/?lang=kk", { waitUntil: "load" });
+await new Promise((r) => setTimeout(r, 3500));
+await page.tracing.stop();
+const ev = JSON.parse(readFileSync("trace.json", "utf8")).traceEvents;
+rmSync("trace.json");
+const mains = ev.filter((e) => e.name === "thread_name" && e.args?.name === "CrRendererMain").map((e) => e.pid + ":" + e.tid);
+const tasks = ev.filter((e) => e.ph === "X" && mains.includes(e.pid + ":" + e.tid) && e.dur);
+const agg = {};
+for (const e of tasks) if (e.name !== "RunTask" && e.dur > 3000) agg[e.name] = (agg[e.name] || 0) + e.dur / 1000;
+console.log(Object.entries(agg).sort((a, b) => b[1] - a[1]).slice(0, 14).map(([k, v]) => `${k}: ${Math.round(v)}ms`).join("\n"));
+await browser.close();

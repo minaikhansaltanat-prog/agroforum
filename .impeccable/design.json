@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T00:00:00.000Z",
+  "title": "Design System: Agroforum 2026",
+  "extensions": {
+    "colorMeta": {
+      "cream": { "role": "neutral", "displayName": "Steppe Cream", "canonical": "#FBF8F1", "tonalRamp": ["#2A2822", "#4F4C43", "#7A766A", "#A9A597", "#D0CCBD", "#E8E0CC", "#F3EEE2", "#FBF8F1"] },
+      "sand": { "role": "neutral", "displayName": "Sand", "canonical": "#F3EEE2", "tonalRamp": ["#2A2822", "#4F4C43", "#7A766A", "#B8B09A", "#D4CBB4", "#E8E0CC", "#F3EEE2", "#FAF7EF"] },
+      "ink": { "role": "neutral", "displayName": "Deep Navy Ink", "canonical": "#0B1F3A", "tonalRamp": ["#0B1F3A", "#16315A", "#2B3D57", "#4A5568", "#6F7B8D", "#9AA4B3", "#C9D0DB", "#E9EEF6"] },
+      "gold": { "role": "primary", "displayName": "Harvest Gold", "canonical": "#C9A24A", "tonalRamp": ["#3D2E08", "#7C5C14", "#B38B33", "#C9A24A", "#D6B25F", "#E6CB8C", "#F3E6C2", "#FBF3DD"] },
+      "green": { "role": "secondary", "displayName": "Field Green", "canonical": "#2E7D4F", "tonalRamp": ["#0F2E1C", "#1F5C39", "#2E7D4F", "#4E9A6C", "#7FBA95", "#B0D6BF", "#E1F0E6", "#F1F8F4"] }
+    },
+    "typographyMeta": {
+      "hero-title": { "displayName": "Hero title", "purpose": "Full forum title in the first viewport; last line green with a gold bar." },
+      "section-title": { "displayName": "Section title", "purpose": "One per section, balanced wrap, tight tracking." },
+      "stat-number": { "displayName": "Stat number", "purpose": "Numbers band; tabular numerals." },
+      "price": { "displayName": "Price", "purpose": "Pass prices with an aged-gold tenge sign." },
+      "title": { "displayName": "Title", "purpose": "Card, group, speaker and timeline headings." },
+      "lead": { "displayName": "Lead", "purpose": "Section intro in grey, max 64ch." },
+      "body": { "displayName": "Body", "purpose": "Inter reading text." },
+      "bubble": { "displayName": "Bubble", "purpose": "Dialogue question and answer text." },
+      "button": { "displayName": "Button", "purpose": "Montserrat 700 labels on pills." },
+      "chip": { "displayName": "Chip", "purpose": "Small tags and meta." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "0 1px 2px rgba(11,31,58,.05), 0 10px 28px -12px rgba(11,31,58,.16)", "purpose": "Cards, pills, countdown, slots." },
+      { "name": "card-lifted", "value": "0 2px 4px rgba(11,31,58,.06), 0 26px 52px -22px rgba(11,31,58,.28)", "purpose": "Form, hero photos and bubbles, dropdown, sticky answer panel, hover on speaker cards." },
+      { "name": "pass", "value": "drop-shadow(0 2px 3px rgba(11,31,58,.06)) drop-shadow(0 24px 28px rgba(11,31,58,.10))", "purpose": "Filter shadow so the perforated notches cast correctly." },
+      { "name": "button-gold", "value": "0 1px 0 rgba(255,255,255,.35) inset, 0 10px 20px -10px rgba(0,0,0,.38)", "purpose": "Gold button lift." },
+      { "name": "nav-stuck", "value": "0 1px 0 rgba(11,31,58,.06), 0 12px 30px -20px rgba(11,31,58,.35)", "purpose": "Header after scroll or with the menu open." },
+      { "name": "ring-field", "value": "inset 0 0 0 1.5px rgba(11,31,58,.12)", "purpose": "Border substitute on fields, packages, ghost buttons." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.22, 1, .36, 1)", "purpose": "Single easing for every transition and the spring pop." },
+      { "name": "reveal", "value": "opacity + translate3d(0,26px,0), .8s, delay n*90ms", "purpose": "Scroll reveal." },
+      { "name": "hero-rise", "value": "translate3d(0,20px,0), .8s, delays 0 to .3s", "purpose": "Hero copy entrance; text is never hidden." },
+      { "name": "panel-in", "value": "opacity + translateY(8px), .5s", "purpose": "Dialogue answer, FAQ answer." },
+      { "name": "reduced-motion", "value": "all durations .001ms, reveal shown, parallax/counting/smooth-scroll off", "purpose": "prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "small-phone", "value": "max-width 520px" },
+      { "name": "form-rows", "value": "560px" },
+      { "name": "timeline", "value": "640px" },
+      { "name": "stats", "value": "760px" },
+      { "name": "tablet-nav", "value": "768px" },
+      { "name": "passes", "value": "860px" },
+      { "name": "mosaic", "value": "900px" },
+      { "name": "two-column", "value": "960px" },
+      { "name": "video-grid", "value": "1100px" },
+      { "name": "desktop-nav", "value": "1120px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Primary action, pill, ink text on gold.",
+      "html": "<button class=\"ds-btn ds-btn-gold\">Register</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:999px;border:0;font:700 .98rem/1.15 Montserrat,system-ui,sans-serif;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),background-color .2s} .ds-btn-gold{background:#C9A24A;color:#0B1F3A;box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 10px 20px -10px rgba(0,0,0,.38)} .ds-btn-gold:hover{background:#D6B25F;transform:translateY(-2px)} .ds-btn:focus-visible{outline:3px solid #0B1F3A;outline-offset:3px} .ds-btn:active{transform:translateY(1px) scale(.985)}"
+    },
+    {
+      "name": "Ghost and Outline Buttons",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary actions on white pills with an inset ring.",
+      "html": "<button class=\"ds-btn ds-btn-ghost\">Partner</button> <button class=\"ds-btn ds-btn-outline\">Programme</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:999px;border:0;font:700 .98rem/1.15 Montserrat,system-ui,sans-serif;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),background-color .2s,color .2s} .ds-btn-ghost{background:#fff;color:#0B1F3A;box-shadow:inset 0 0 0 1.5px rgba(11,31,58,.18)} .ds-btn-ghost:hover{box-shadow:inset 0 0 0 1.5px #0B1F3A;transform:translateY(-2px)} .ds-btn-outline{background:#fff;color:#0B1F3A;box-shadow:inset 0 0 0 2px #0B1F3A} .ds-btn-outline:hover{background:#0B1F3A;color:#fff;transform:translateY(-2px)} .ds-btn:focus-visible{outline:3px solid #0B1F3A;outline-offset:3px}"
+    },
+    {
+      "name": "Navy and WhatsApp Buttons",
+      "kind": "button",
+      "refersTo": "button-navy",
+      "description": "Weighted navy action and the green WhatsApp contact.",
+      "html": "<button class=\"ds-btn ds-btn-navy\">Apply</button> <button class=\"ds-btn ds-btn-wa\">WhatsApp</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:999px;border:0;font:700 .98rem/1.15 Montserrat,system-ui,sans-serif;cursor:pointer;transition:transform .25s cubic-bezier(.22,1,.36,1),background-color .2s} .ds-btn-navy{background:#0B1F3A;color:#fff;box-shadow:0 10px 22px -12px rgba(11,31,58,.7)} .ds-btn-navy:hover{background:#16315A;transform:translateY(-2px)} .ds-btn-wa{background:#2E7D4F;color:#fff;box-shadow:0 10px 22px -12px rgba(31,92,57,.7)} .ds-btn-wa:hover{background:#2A7149;transform:translateY(-2px)} .ds-btn:focus-visible{outline:3px solid #0B1F3A;outline-offset:3px}"
+    },
+    {
+      "name": "Chips",
+      "kind": "chip",
+      "refersTo": "chip-green",
+      "description": "Small pill tags in green, sand and gold.",
+      "html": "<span class=\"ds-chip\">Answered</span> <span class=\"ds-chip ds-chip-sand\">Soon</span> <span class=\"ds-chip ds-chip-gold\">Seats</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font:600 .76rem/1.1 Inter,system-ui,sans-serif;background:#E1F0E6;color:#1F5C39} .ds-chip-sand{background:#F3EEE2;color:#4A5568} .ds-chip-gold{background:#C9A24A;color:#0B1F3A;font-weight:700}"
+    },
+    {
+      "name": "Info Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White 20px card with an icon tile and soft shadow.",
+      "html": "<div class=\"ds-card\"><span class=\"ds-ico\"></span><div><h4>Title</h4><p>Supporting copy in grey.</p></div></div>",
+      "css": ".ds-card{display:flex;gap:14px;align-items:flex-start;padding:18px;background:#fff;border-radius:20px;box-shadow:0 1px 2px rgba(11,31,58,.05),0 10px 28px -12px rgba(11,31,58,.16);font-family:Inter,system-ui,sans-serif;color:#0B1F3A} .ds-ico{flex:none;width:48px;height:48px;border-radius:15px;background:#E1F0E6} .ds-card h4{margin:0 0 4px;font:700 1.02rem/1.3 Montserrat,system-ui,sans-serif} .ds-card p{margin:0;font-size:.94rem;line-height:1.5;color:#4A5568}"
+    },
+    {
+      "name": "Seat Pass",
+      "kind": "custom",
+      "refersTo": "pass",
+      "description": "Two white halves joined by a dashed line, notched at both sides.",
+      "html": "<div class=\"ds-pass\"><div class=\"ds-pass-top\"><h3>Participant</h3><b>5 000 ₸</b></div><div class=\"ds-pass-bot\">Ticks and button</div></div>",
+      "css": ".ds-pass{display:flex;flex-direction:column;max-width:380px;filter:drop-shadow(0 2px 3px rgba(11,31,58,.06)) drop-shadow(0 24px 28px rgba(11,31,58,.10));font-family:Inter,system-ui,sans-serif;color:#0B1F3A} .ds-pass-top,.ds-pass-bot{position:relative;background:#fff;padding:28px 26px} .ds-pass-top{border-radius:28px 28px 0 0;-webkit-mask:radial-gradient(circle at 0 100%,#0000 13px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 100%,#0000 13px,#000 13.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 100%,#0000 13px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 100%,#0000 13px,#000 13.5px) right/51% 100% no-repeat} .ds-pass-bot{border-radius:0 0 28px 28px;-webkit-mask:radial-gradient(circle at 0 0,#0000 13px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 0,#0000 13px,#000 13.5px) right/51% 100% no-repeat;mask:radial-gradient(circle at 0 0,#0000 13px,#000 13.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 0,#0000 13px,#000 13.5px) right/51% 100% no-repeat} .ds-pass-bot::before{content:\"\";position:absolute;left:22px;right:22px;top:0;border-top:2px dashed rgba(11,31,58,.18)} .ds-pass h3{margin:0 0 8px;font:800 1.7rem/1.1 Montserrat,system-ui,sans-serif;letter-spacing:-.025em} .ds-pass b{font:800 3rem/1 Montserrat,system-ui,sans-serif;letter-spacing:-.04em}"
+    },
+    {
+      "name": "Dialogue Bubbles",
+      "kind": "custom",
+      "refersTo": "bubble-question",
+      "description": "Farmer question (sand, bottom-left corner) and scientist answer (green-soft, bottom-right corner).",
+      "html": "<div class=\"ds-dlg\"><p class=\"ds-q\">How do I cut feed costs?</p><p class=\"ds-a\">Start with the ration balance.</p></div>",
+      "css": ".ds-dlg{display:grid;gap:12px;font-family:Inter,system-ui,sans-serif} .ds-q,.ds-a{margin:0;font-size:1rem} .ds-q{justify-self:start;max-width:92%;padding:12px 16px;background:#F3EEE2;color:#2B3D57;font-weight:600;border-radius:20px 20px 20px 6px} .ds-a{justify-self:end;padding:14px 18px;background:#E1F0E6;color:#0B1F3A;font-weight:500;line-height:1.55;border-radius:20px 20px 6px 20px}"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Cream 54px field with inset ring and gold focus glow.",
+      "html": "<div class=\"ds-field\"><label>Name</label><input placeholder=\"Your name\"></div>",
+      "css": ".ds-field{display:grid;gap:7px;font-family:Inter,system-ui,sans-serif} .ds-field label{font:600 .88rem/1.2 Inter,system-ui,sans-serif;color:#0B1F3A} .ds-field input{width:100%;min-height:54px;padding:0 16px;border:0;border-radius:14px;background:#FBF8F1;box-shadow:inset 0 0 0 1.5px rgba(11,31,58,.12);font:400 1rem Inter,system-ui,sans-serif;color:#0B1F3A} .ds-field input::placeholder{color:#5B6779} .ds-field input:hover{box-shadow:inset 0 0 0 1.5px rgba(11,31,58,.3)} .ds-field input:focus{outline:0;background:#fff;box-shadow:inset 0 0 0 2px #0B1F3A,0 0 0 4px rgba(201,162,74,.45)}"
+    },
+    {
+      "name": "FAQ Dialogue",
+      "kind": "custom",
+      "refersTo": "bubble-answer",
+      "description": "Question as a white bubble, answer as a green-soft bubble with a check.",
+      "html": "<details open class=\"ds-faq\"><summary>Where is it held?</summary><div class=\"ds-faq-a\"><p>In the forum hall.</p></div></details>",
+      "css": ".ds-faq{font-family:Montserrat,system-ui,sans-serif;color:#0B1F3A} .ds-faq summary{display:flex;align-items:center;gap:16px;width:fit-content;min-height:60px;padding:12px 18px 12px 22px;list-style:none;cursor:pointer;font:700 1.04rem/1.35 Montserrat,system-ui,sans-serif;background:#fff;border-radius:24px 24px 24px 6px;box-shadow:0 1px 2px rgba(11,31,58,.05),0 10px 28px -12px rgba(11,31,58,.16)} .ds-faq summary::-webkit-details-marker{display:none} .ds-faq summary:focus-visible{outline:3px solid #0B1F3A;outline-offset:3px} .ds-faq-a{width:fit-content;margin:10px 0 8px auto;padding:16px 22px 16px 18px;background:#E1F0E6;border-radius:24px 24px 6px 24px;font-family:Inter,system-ui,sans-serif} .ds-faq-a p{margin:0}"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Cream fixed header; links are 44px pills, current is gold-soft.",
+      "html": "<nav class=\"ds-nav\"><a class=\"is-on\">About</a><a>Programme</a><a>Tickets</a></nav>",
+      "css": ".ds-nav{display:flex;gap:2px;align-items:center;height:76px;padding:0 16px;background:#FBF8F1} .ds-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px;font:700 .88rem/1 Montserrat,system-ui,sans-serif;color:#0B1F3A;cursor:pointer;transition:background-color .2s} .ds-nav a:hover{background:#F3EEE2} .ds-nav a.is-on{background:#F3E6C2} .ds-nav a:focus-visible{outline:3px solid #0B1F3A;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Field Conversation",
+    "overview": "The page is one dialogue between a farmer and a scientist. Questions arrive in white or sand bubbles, answers in green-washed bubbles, and the packages are seat passes with perforated notches. The ground is cream with a fine paper grain, cards are white and softly lifted, ink is a deep navy, and gold is reserved for the action and a flat sun disc.\n\nThe density is generous and phone first: wide section padding, single-column stacking below 960px, large tap targets. Real photography sits in rounded white-bordered frames. Navy appears as a surface only in the footer.\n\nThe page rejects the conference-brochure arrangement and invented proof: no made-up testimonials, statistics or logos.",
+    "keyCharacteristics": [
+      "Cream ground with grain; white cards; sand bands as rounded panels inset from the viewport edge.",
+      "Gold for actions and one decorative sun disc; green for answers, ticks and confirmation.",
+      "Pill buttons and chips, 20 to 28px cards, speech-bubble corner marking the speaker's side.",
+      "Stroke SVG icons only (1.75 stroke, round caps) on a shared 24px grid.",
+      "Motion is transform and opacity, short, and fully suppressed under reduced motion."
+    ],
+    "rules": [
+      { "name": "The One Action Rule", "body": "Gold marks what to do (register, partner, progress). Green marks what is answered or confirmed. Never use green for a primary action other than WhatsApp, never gold for a confirmation.", "section": "colors" },
+      { "name": "The Navy-Floor Rule", "body": "Navy is a surface only in the footer (and tiny filled controls: step numbers, selected chips, burger when open). No navy hero, band or card.", "section": "colors" },
+      { "name": "The Gold-Text Rule", "body": "Gold text under about 1.2rem uses gold-deep; gold-lo is for large figures and icons; plain gold is a fill, with ink on top.", "section": "colors" },
+      { "name": "The Two-Face Rule", "body": "Montserrat for headings, numbers, buttons, nav and captions; Inter for reading text, bubbles, chips and form fields. Never a third family.", "section": "typography" },
+      { "name": "The Tabular Rule", "body": "Countdown, stats, prices, times and package amounts use tabular numerals.", "section": "typography" },
+      { "name": "The Rounded Panel Rule", "body": "Bands are inset rounded panels, never full-bleed rectangles.", "section": "layout" },
+      { "name": "The Sticky Companion Rule", "body": "On wide screens the explaining column stays pinned beside the scrolling content.", "section": "layout" },
+      { "name": "The Soft Navy Rule", "body": "Every shadow is tinted with the ink color, long and low-opacity. Never pure black except the dark video frame, never a hard offset.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do frame content as question then answer; put farmer language first and the scientist's answer second.",
+      "Do use gold only for the action and green only for answers, ticks and confirmation.",
+      "Do keep cards white on cream or sand, 20 to 28px radius, with the soft navy shadows listed above.",
+      "Do use pill shapes for every button, chip and tag, and 52px minimum height for buttons (44px for any other control).",
+      "Do use inline stroke SVG icons at 1.75 stroke on the shared 24px grid.",
+      "Do put gold text on white only as gold-deep; use ink text on gold fills.",
+      "Do animate with transform and opacity, 0.25 to 0.8s with the ease (0.22, 1, 0.36, 1), and gate every motion behind the reduced-motion rule.",
+      "Do keep copy honest: real programme, real speakers, real photographs; label unconfirmed items instead of inventing."
+    ],
+    "donts": [
+      "Don't use navy as a hero, band or card background; navy is the footer surface only.",
+      "Don't reintroduce the brochure layout: logo row, speaker grid as hero, tabular price table.",
+      "Don't use hard offset shadows, pure black shadows (except the dark video frame) or colour gradients on surfaces.",
+      "Don't add a third typeface or system display faces for headings.",
+      "Don't use emoji or glyph icons; icons are the SVG sprite.",
+      "Don't invent testimonials, statistics, logos, or speaker photos.",
+      "Don't make bubbles symmetrical: the 6px corner always points to the speaker."
+    ]
+  }
+}
