@@ -27,7 +27,8 @@
       { "name": "card-lifted", "value": "0 2px 4px rgba(11,31,58,.06), 0 26px 52px -22px rgba(11,31,58,.28)", "purpose": "Form, hero photos and bubbles, dropdown, sticky answer panel, hover on speaker cards." },
       { "name": "pass", "value": "drop-shadow(0 2px 3px rgba(11,31,58,.06)) drop-shadow(0 24px 28px rgba(11,31,58,.10))", "purpose": "Filter shadow so the perforated notches cast correctly." },
       { "name": "button-gold", "value": "0 1px 0 rgba(255,255,255,.35) inset, 0 10px 20px -10px rgba(0,0,0,.38)", "purpose": "Gold button lift." },
-      { "name": "nav-stuck", "value": "0 1px 0 rgba(11,31,58,.06), 0 12px 30px -20px rgba(11,31,58,.35)", "purpose": "Header after scroll or with the menu open." },
+      { "name": "nav-stuck", "value": "0 1px 0 rgba(11,31,58,.06), 0 12px 30px -20px rgba(0,0,0,.3)", "purpose": "Header after scroll or with the menu open." },
+      { "name": "dark-fill", "value": "0 10px 22px -12px rgba(0,0,0,.4) (navy button); 0 10px 20px -8px rgba(0,0,0,.35) (ink badge)", "purpose": "Neutral black under dark fills; a navy shadow on navy is invisible." },
       { "name": "ring-field", "value": "inset 0 0 0 1.5px rgba(11,31,58,.12)", "purpose": "Border substitute on fields, packages, ghost buttons." }
     ],
     "motion": [
@@ -148,9 +149,10 @@
       { "name": "The Gold-Text Rule", "body": "Gold text under about 1.2rem uses gold-deep; gold-lo is for large figures and icons; plain gold is a fill, with ink on top.", "section": "colors" },
       { "name": "The Two-Face Rule", "body": "Montserrat for headings, numbers, buttons, nav and captions; Inter for reading text, bubbles, chips and form fields. Never a third family.", "section": "typography" },
       { "name": "The Tabular Rule", "body": "Countdown, stats, prices, times and package amounts use tabular numerals.", "section": "typography" },
+      { "name": "The 11px Floor Rule", "body": "Text people read or tap never goes below 11px (0.6875rem). Photo captions, countdown labels and the photo credit sit at the floor; make a container bigger or let a label wrap before making the text smaller.", "section": "typography" },
       { "name": "The Rounded Panel Rule", "body": "Bands are inset rounded panels, never full-bleed rectangles.", "section": "layout" },
       { "name": "The Sticky Companion Rule", "body": "On wide screens the explaining column stays pinned beside the scrolling content.", "section": "layout" },
-      { "name": "The Soft Navy Rule", "body": "Every shadow is tinted with the ink color, long and low-opacity. Never pure black except the dark video frame, never a hard offset.", "section": "elevation" }
+      { "name": "The Soft Navy Rule", "body": "Shadows under light surfaces are tinted with the ink color, long and low-opacity. Shadows under dark fills (navy button, ink badge, video frame) and the stuck header's drop are neutral black, because a navy shadow on a navy surface is invisible and reads as a glow. Never a hard offset.", "section": "elevation" }
     ],
     "dos": [
       "Do frame content as question then answer; put farmer language first and the scientist's answer second.",
@@ -165,7 +167,7 @@
     "donts": [
       "Don't use navy as a hero, band or card background; navy is the footer surface only.",
       "Don't reintroduce the brochure layout: logo row, speaker grid as hero, tabular price table.",
-      "Don't use hard offset shadows, pure black shadows (except the dark video frame) or colour gradients on surfaces.",
+      "Don't use hard offset shadows, pure black shadows on light surfaces (neutral black is for dark fills, the dark video frame and the stuck header's drop) or colour gradients on surfaces.",
       "Don't add a third typeface or system display faces for headings.",
       "Don't use emoji or glyph icons; icons are the SVG sprite.",
       "Don't invent testimonials, statistics, logos, or speaker photos.",

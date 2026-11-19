@@ -244,11 +244,12 @@ A warm paper palette with one gold voice and one green voice; navy is ink, not a
 - **Body** (400, 1.0625rem, 1.65): base text; card copy runs 0.86 to 1rem, paragraphs capped at about 60ch.
 - **Bubble text** (Inter 600 at 0.92rem in hero bubbles; 1rem and weight 500 for answers in the dialogue).
 - **Button** (Montserrat 700, 0.98rem; 1.02rem large, 0.9rem small).
-- **Chip / caption** (Inter 600 0.76rem for chips; Montserrat 700 0.74rem for photo captions).
+- **Chip / caption** (Inter 600 0.76rem for chips; Montserrat 700 0.74rem for photo captions, 0.6875rem on phones so the longest label still fits its frame; countdown labels 0.7rem on phones; photo credit 0.72rem).
 
 ### Named Rules
 **The Two-Face Rule.** Montserrat for headings, numbers, buttons, nav and captions; Inter for reading text, bubbles, chips and form fields. Never a third family.
 **The Tabular Rule.** Countdown, stats, prices, times and package amounts use tabular numerals.
+**The 11px Floor Rule.** Text people read or tap never goes below 11px (0.6875rem). Photo captions, countdown labels and the photo credit sit at the floor; make a container bigger or let a label wrap before making the text smaller.
 
 ## Layout
 
@@ -270,12 +271,12 @@ Depth is soft, navy-tinted and layered; flat tonal contrast (white on cream, san
 - **Card rest** (`0 1px 2px rgba(11,31,58,.05), 0 10px 28px -12px rgba(11,31,58,.16)`): cards, pills, countdown, slots, step help.
 - **Card lifted** (`0 2px 4px rgba(11,31,58,.06), 0 26px 52px -22px rgba(11,31,58,.28)`): form, hero photos and bubbles, dropdown, sticky answer panel, hover state of speaker cards.
 - **Pass** (`drop-shadow(0 2px 3px rgba(11,31,58,.06)) drop-shadow(0 24px 28px rgba(11,31,58,.10))`): applied as a filter so the notches cast correctly; the recommended pass adds a 2px gold outline through four gold drop-shadows.
-- **Gold button** (inset 1px white highlight plus `0 10px 20px -10px rgba(0,0,0,.38)`), **navy and WhatsApp buttons** carry a tinted `0 10px 22px -12px` shadow.
-- **Nav stuck** (`0 1px 0 rgba(11,31,58,.06), 0 12px 30px -20px rgba(11,31,58,.35)`).
+- **Gold button** (inset 1px white highlight plus `0 10px 20px -10px rgba(0,0,0,.38)`), the **WhatsApp button** carries a tinted `0 10px 22px -12px` shadow, the **navy button** a neutral `0 10px 22px -12px rgba(0,0,0,.4)` and the **ink badge** on the recommended pass `0 10px 20px -8px rgba(0,0,0,.35)`.
+- **Nav stuck** (`0 1px 0 rgba(11,31,58,.06), 0 12px 30px -20px rgba(0,0,0,.3)`).
 - **Inset rings** (`inset 0 0 0 1.5px` at 12 to 18% navy) stand in for borders on ghost buttons, fields, packages.
 
 ### Named Rules
-**The Soft Navy Rule.** Every shadow is tinted with the ink color, long and low-opacity. Never pure black except the dark video frame, never a hard offset.
+**The Soft Navy Rule.** Shadows under light surfaces are tinted with the ink color, long and low-opacity. Shadows under dark fills (navy button, ink badge, video frame) and the stuck header's drop are neutral black, because a navy shadow on a navy surface is invisible and reads as a glow. Never a hard offset.
 
 ## Shapes
 

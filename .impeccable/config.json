@@ -23,6 +23,42 @@
         ],
         "createdAt": "2026-11-19T20:13:37.545Z",
         "reason": "Background #FBF8F1 is pinned by the client's TZ.md section 3 (design system); not a separate confirmation"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-19T21:47:01.404Z",
+        "reason": "Measured text inset is at least 9px inside every flagged pill, panel, pass and card (mostly 17 to 40px); the rule reads box edges, but the inset here comes from margins, gutters and child padding"
+      },
+      {
+        "rule": "nested-cards",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-19T21:47:01.839Z",
+        "reason": "Accordion pattern: each What-you-get answer panel sits inside its own question item by design (dialogue structure from the direction contract)"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "site/index.html"
+        ],
+        "createdAt": "2026-11-19T21:47:02.283Z",
+        "reason": "Checked rendered styles at 390 and 1280px: no dark surface carries a colored blurred shadow; navy-tinted elevation shadows fall on the cream page only"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "scripts/og-template.html"
+        ],
+        "createdAt": "2026-11-19T21:47:02.739Z",
+        "reason": "OG image template reuses the client cream background pinned by TZ.md section 3"
       }
     ]
   }
