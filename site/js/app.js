@@ -99,8 +99,7 @@
     var q = new URLSearchParams(location.search).get("lang");
     if (q && ok[q]) return q;
     try { var s = localStorage.getItem("lang"); if (s && ok[s]) return s; } catch (e) {}
-    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || "kk").slice(0, 2).toLowerCase();
-    return ok[n] ? n : "kk";
+    return "kk"; /* Kazakh is the main language; other languages only by the visitor's own choice */
   }
 
   function loadLang(l, cb) {

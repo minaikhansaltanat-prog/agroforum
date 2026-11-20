@@ -91,11 +91,17 @@ html.lang-wait body{opacity:0}
 @media (min-width:768px){.nav__cta{display:inline-flex}}
 
 
-.lang{position:relative;display:none}
-@media (min-width:768px){.lang{display:block}}
+.lang{position:relative}
+.lang__btn .i:first-child{color:var(--green)}
+}
 .lang__btn{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 14px;border-radius:999px;font:700 .85rem/1 var(--font-head);color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(11,31,58,.16);background:#fff;transition:box-shadow .2s,background-color .2s}@media (hover:hover) and (pointer:fine){.lang__btn:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}}
 .lang__btn .i--s{transition:transform .25s var(--ease)}
 .lang__btn[aria-expanded="true"] .i--s{transform:rotate(180deg)}
+@media (max-width:767px){
+  .lang__btn{display:grid;grid-template-columns:auto auto;grid-template-areas:"g g" "c v";justify-content:center;align-content:center;column-gap:3px;row-gap:1px;width:56px;min-height:46px;padding:0;border-radius:18px;background:var(--gold-wash);box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.6);font-size:.72rem}
+  .lang__btn>:nth-child(1){grid-area:g;justify-self:center;width:20px;height:20px}
+  .lang__btn>:nth-child(2){grid-area:c}
+  .lang__btn>:nth-child(3){grid-area:v;width:12px;height:12px;color:var(--gold-deep)}
 .lang__list{position:absolute;right:0;top:calc(100% + 10px);min-width:190px;list-style:none;padding:8px;background:#fff;border-radius:18px;box-shadow:var(--shadow-2),0 0 0 1px rgba(11,31,58,.06);transform-origin:top right;animation:pop .22s var(--ease)}
 .lang__list li{display:block}
 .lang__list button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:0 14px;border-radius:12px;text-align:left;font:600 .95rem/1 var(--font-body);transition:background-color .15s}@media (hover:hover) and (pointer:fine){.lang__list button:hover{background:var(--sand)}}
