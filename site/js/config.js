@@ -38,9 +38,32 @@ window.AGRO = {
     /* sp1: "img/speakers/sp1.webp", */
   },
 
-  /* Names of the people in the four "speaker address" videos. Fill in when the client provides them.
-     Example: { name: "Аты-жөні", role: "Лауазымы" } (same text for every language). */
-  videoPeople: [null, null, null, null],
+  /* People in the three "organisers' address" videos, in the order of the cards. null = not known yet: the card keeps a
+     general caption and the "coming soon" note stays until all three are filled.
+     Example: { name: "Аты-жөні", role: "Лауазымы" }. A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
+  videoPeople: [
+    null,
+    {
+      name: "Мұқашев Айтуған Адамқұлұлы",
+      role: {
+        kk: "Орталық Азия Кәсіпкерлері Қауымдастығы мен «KASIPKER» альянсының негізін қалаушылардың бірі",
+        ru: "Один из основателей Ассоциации предпринимателей Центральной Азии и альянса «KASIPKER»",
+        zh: "中亚企业家协会和“KASIPKER”联盟创始人之一",
+        uz: "Markaziy Osiyo Tadbirkorlari Assotsiatsiyasi va “KASIPKER” alyansining asoschilaridan biri",
+        ky: "Борбордук Азия Ишкерлер Ассоциациясынын жана «KASIPKER» альянсынын негиз салуучуларынын бири"
+      }
+    },
+    {
+      name: "Мұқашев Айтуған Адамқұлұлы",
+      role: {
+        kk: "Орталық Азия Кәсіпкерлері Қауымдастығы мен «KASIPKER» альянсының негізін қалаушылардың бірі",
+        ru: "Один из основателей Ассоциации предпринимателей Центральной Азии и альянса «KASIPKER»",
+        zh: "中亚企业家协会和“KASIPKER”联盟创始人之一",
+        uz: "Markaziy Osiyo Tadbirkorlari Assotsiatsiyasi va “KASIPKER” alyansining asoschilaridan biri",
+        ky: "Борбордук Азия Ишкерлер Ассоциациясынын жана «KASIPKER» альянсынын негиз салуучуларынын бири"
+      }
+    }
+  ],
 
   /* Partner logos for the grid in "Organisers and partners". Example: [{ src: "img/partners/acme.webp", alt: "Acme" }] */
   partnerLogos: []

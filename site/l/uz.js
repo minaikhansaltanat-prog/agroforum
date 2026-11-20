@@ -13,7 +13,7 @@
   n_about: "Forum haqida", n_speakers: "Spikerlar", n_programme: "Dastur", n_tickets: "Paketlar",
   n_partners: "Hamkorlarga", n_faq: "Savollar", n_lang: "Til", n_cta: "Joy olish",
   n_sections: "Boʻlimlar",
-  n_get: "Nima olasiz", n_voices: "Spikerlar murojaati", n_reg: "Roʻyxatdan oʻtish", n_venue: "Oʻtkaziladigan joy",
+  n_get: "Nima olasiz", n_voices: "Tashkilotchilar murojaati", n_reg: "Roʻyxatdan oʻtish", n_venue: "Oʻtkaziladigan joy",
 
   h_date: "2026-yil 3-dekabr",
   h_place: "KazNARU, Olmaota",
@@ -84,11 +84,11 @@
   g6w: "“Ishtirokchi” paketiga kiradi",
   g_cta_note: "Oltita imkoniyatning barchasi “Ishtirokchi” paketiga kiradi: 5 000 ₸.",
 
-  v_h: "Spikerlar murojaati",
-  v_lead: "Forumga taklif qilayotgan spikerlarning qisqa murojaatlari. Videoni bosing va tinglang.",
-  v_label: "Spiker murojaati videosi",
-  v_n: "Spiker",
-  v_pending: "Spikerlarning ism-familiyasi va lavozimi tez orada qoʻshiladi.",
+  v_h: "Tashkilotchilar murojaati",
+  v_lead: "Tashkilotchilar sizni forumga taklif qiladi. Videoni bosing va tinglang.",
+  v_label: "Tashkilotchi murojaati videosi",
+  v_n: "Tashkilotchi",
+  v_pending: "Birinchi videodagi tashkilotchining ism-familiyasi va lavozimi tez orada qoʻshiladi.",
 
   sp_h: "Spikerlar",
   sp_lead: "Barcha maʼruzalar xoʻjaliklarning aniq mavzulariga bagʻishlangan. Har bir maʼruzada kimga foydali ekani koʻrsatilgan.",

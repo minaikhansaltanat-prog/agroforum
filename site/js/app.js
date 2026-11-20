@@ -87,7 +87,7 @@
     // interpretation language default follows site language
     var sel = $("#f-lang"); if (sel && !sel.dataset.touched) sel.value = L;
     if (!(initial && L === "kk")) renderAvatars();
-    renderSlots(); setPromo();
+    renderSlots(); setPromo(); renderPeople();
     var burger = $("#burger");
     burger.setAttribute("aria-label", tr(root.classList.contains("menu-open") ? "n_menu_close" : "n_menu_open"));
     ["#waHelp", "#waFaq", "#waFoot"].forEach(function (s) { var e = $(s); if (e) e.href = waLink(tr("wa_hello")); });
@@ -420,17 +420,18 @@
     box.innerHTML = cells.join("");
   })();
 
-  /* names under the four speaker videos (filled from config.js when the client provides them) */
-  (function () {
+  /* names under the organiser videos (config.js): one text for every language, or one text per language */
+  function renderPeople() {
     var cards = $$(".vcard"), ppl = C.videoPeople || [], all = true;
+    function pick(v) { return v && typeof v === "object" ? (v[L] || v.kk || "") : v || ""; }
     cards.forEach(function (c, i) {
       var p = ppl[i];
       if (!p) { all = false; return; }
-      $(".vcard__name", c).textContent = p.name;
-      var r = $(".vcard__role", c); if (p.role) { r.textContent = p.role; r.hidden = false; }
+      $(".vcard__name", c).textContent = pick(p.name);
+      var r = $(".vcard__role", c), role = pick(p.role); r.textContent = role; r.hidden = !role;
     });
-    var note = $("#vNote"); if (note && all && cards.length) note.hidden = true;
-  })();
+    var note = $("#vNote"); if (note && cards.length) note.hidden = all;
+  }
 
   /* keyboard access to the swipe rail on phones */
   (function () {
