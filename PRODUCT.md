@@ -39,7 +39,7 @@ One day, 3 December 2026 (guests arrive 2 December). Registration 08:30-09:30, o
 - Never write the word "free" (kk тегін / ru бесплатно / zh 免费 / uz bepul / ky акысыз) about participation; never "400 seats"; never "opening 09:00".
 - Never use the long dash in Kazakh or translated text.
 - Foreign guests' names are published only with their consent.
-- Open facts the client still owes: domain, Kaspi links, the position of Rasul Saduuly (organiser in the first video; his name is shown), speaker photos, partner logos, dinner restaurant, refund terms.
+- Open facts the client still owes: domain, Kaspi links, speaker photos, partner logos, dinner restaurant, refund terms.
 
 ## Brand Commitments
 

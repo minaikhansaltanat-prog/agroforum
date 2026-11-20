@@ -41,7 +41,16 @@ window.AGRO = {
   /* People in the three "organisers' address" videos, in the order of the cards. null = not known: the card keeps a general caption.
      Example: { name: "Аты-жөні", role: "Лауазымы" } (role is optional). A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
   videoPeople: [
-    { name: "Расул Сәдуұлы" },
+    {
+      name: "Расул Сәдуұлы",
+      role: {
+        kk: "Орталық Азия кәсіпкерлер қауымдастығының негізін қалаушы",
+        ru: "Основатель Ассоциации предпринимателей Центральной Азии",
+        zh: "中亚企业家协会创始人",
+        uz: "Markaziy Osiyo Tadbirkorlari Assotsiatsiyasining asoschisi",
+        ky: "Борбордук Азия Ишкерлер Ассоциациясынын негиздөөчүсү"
+      }
+    },
     {
       name: "Мұқашев Айтуған Адамқұлұлы",
       role: {
