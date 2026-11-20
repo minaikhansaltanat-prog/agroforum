@@ -3,7 +3,21 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
-const parts = ["base", "sections"].map((n) => readFileSync(`src/css/${n}.css`, "utf8"));
+const names = ["base", "sections"];
+const parts = names.map((n) => readFileSync(`src/css/${n}.css`, "utf8"));
+
+// A stray "}" or an unclosed "{" makes the browser drop or re-nest every rule after it, often only at some screen widths
+// (a missing "}" once hid all desktop styles). Each source file must close exactly what it opens.
+parts.forEach((src, i) => {
+  const code = src.replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, "")).replace(/"[^"\n]*"|'[^'\n]*'/g, '""');
+  let depth = 0, line = 1;
+  for (const ch of code) {
+    if (ch === "\n") line++;
+    else if (ch === "{") depth++;
+    else if (ch === "}" && --depth < 0) throw new Error(`src/css/${names[i]}.css line ${line}: stray "}"`);
+  }
+  if (depth) throw new Error(`src/css/${names[i]}.css: ${depth} unclosed "{"`);
+});
 
 // Touch screens apply :hover on tap and keep it until the next tap, so every :hover rule is wrapped in place
 // (cascade order unchanged) for hover-capable, precise pointers only. :active/:focus selectors in the same list stay ungated.

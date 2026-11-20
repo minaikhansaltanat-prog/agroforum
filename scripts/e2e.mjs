@@ -23,6 +23,7 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
   await page.addStyleTag({ content: "html{scroll-behavior:auto!important}" });
 
   ok((await page.$eval("html", (e) => e.lang)) === "kk", "default language is Kazakh");
+  ok((await page.$eval(".passes", (e) => getComputedStyle(e).display)) === "grid", "the whole stylesheet applies at desktop width (no unclosed CSS block)");
 
   await page.click("#langBtn"); await sleep(250);
   ok(await page.$eval("#langList", (e) => !e.hidden), "language dropdown opens");

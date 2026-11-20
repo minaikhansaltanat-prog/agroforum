@@ -255,6 +255,8 @@
 .price b{font:800 clamp(2.7rem,2rem + 2.6vw,3.8rem)/1 var(--font-head);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .price span{font:700 1.5rem/1 var(--font-head);color:var(--gold-lo)}
 .pass__diff{display:inline-flex;align-self:start;margin-top:4px;padding:7px 14px;border-radius:999px;background:var(--navy-soft);font:700 .82rem/1.2 var(--font-body);color:var(--ink)}
+.pass__perk{display:flex;align-items:center;gap:12px;margin:0 0 18px;padding:10px 16px 10px 10px;border-radius:var(--r);background:var(--gold-wash);box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.55);font:800 1rem/1.3 var(--font-head);color:var(--ink);overflow-wrap:anywhere}
+.pass__perk .ico{width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px rgba(201,162,74,.4)}
 .pass__plus{margin-bottom:14px;font:700 .98rem/1.4 var(--font-head);color:var(--ink)}
 .ticks{list-style:none;display:grid;gap:12px;margin-bottom:26px;flex:1;align-content:start}
 .ticks li{position:relative;padding-left:34px;font-size:.99rem;line-height:1.5}
