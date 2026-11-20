@@ -38,11 +38,10 @@ window.AGRO = {
     /* sp1: "img/speakers/sp1.webp", */
   },
 
-  /* People in the three "organisers' address" videos, in the order of the cards. null = not known yet: the card keeps a
-     general caption and the "coming soon" note stays until all three are filled.
-     Example: { name: "Аты-жөні", role: "Лауазымы" }. A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
+  /* People in the three "organisers' address" videos, in the order of the cards. null = not known: the card keeps a general caption.
+     Example: { name: "Аты-жөні", role: "Лауазымы" } (role is optional). A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
   videoPeople: [
-    null,
+    { name: "Расул Сәдуұлы" },
     {
       name: "Мұқашев Айтуған Адамқұлұлы",
       role: {

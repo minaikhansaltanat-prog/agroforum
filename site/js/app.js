@@ -422,23 +422,37 @@
 
   /* names under the organiser videos (config.js): one text for every language, or one text per language */
   function renderPeople() {
-    var cards = $$(".vcard"), ppl = C.videoPeople || [], all = true;
+    var ppl = C.videoPeople || [];
     function pick(v) { return v && typeof v === "object" ? (v[L] || v.kk || "") : v || ""; }
-    cards.forEach(function (c, i) {
+    $$(".vcard").forEach(function (c, i) {
       var p = ppl[i];
-      if (!p) { all = false; return; }
+      if (!p) return;
       $(".vcard__name", c).textContent = pick(p.name);
       var r = $(".vcard__role", c), role = pick(p.role); r.textContent = role; r.hidden = !role;
     });
-    var note = $("#vNote"); if (note && cards.length) note.hidden = all;
   }
 
-  /* keyboard access to the swipe rail on phones */
+  /* sector photos: on phones they run as an endless belt (CSS animation over a doubled set of tiles); touching and holding the
+     strip or the button pauses it. With reduced motion the strip stays a swipe rail, which then needs keyboard access. */
   (function () {
-    var m = $("#mosaic"), mq = window.matchMedia("(max-width: 899px)");
-    if (!m) return;
-    function t() { if (mq.matches) m.setAttribute("tabindex", "0"); else m.removeAttribute("tabindex"); }
-    t(); if (mq.addEventListener) mq.addEventListener("change", t); else mq.addListener(t);
+    var sec = $(".mosaic"), m = $("#mosaic"), btn = $("#mzCtl");
+    if (!sec || !m) return;
+    $$(".mz", m).forEach(function (f) {
+      var c = f.cloneNode(true);
+      c.classList.remove("rv"); c.classList.add("mz--clone"); c.removeAttribute("style"); c.setAttribute("aria-hidden", "true");
+      m.appendChild(c);
+    });
+    var phone = window.matchMedia("(max-width: 899px)"), still = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function rail() { if (phone.matches && still.matches) m.setAttribute("tabindex", "0"); else m.removeAttribute("tabindex"); }
+    rail();
+    [phone, still].forEach(function (q) { if (q.addEventListener) q.addEventListener("change", rail); else q.addListener(rail); });
+    function hold(on) { sec.classList.toggle("is-held", on); }
+    m.addEventListener("pointerdown", function () { hold(true); });
+    ["pointerup", "pointercancel", "pointerleave"].forEach(function (e) { m.addEventListener(e, function () { hold(false); }); });
+    if (btn) btn.addEventListener("click", function () {
+      var k = sec.classList.toggle("is-paused") ? "mz_play" : "mz_pause";
+      btn.setAttribute("data-ia", k); btn.setAttribute("aria-label", tr(k));
+    });
   })();
 
   /* ---------- go ---------- */

@@ -88,7 +88,6 @@
   v_lead: "Tashkilotchilar sizni forumga taklif qiladi. Videoni bosing va tinglang.",
   v_label: "Tashkilotchi murojaati videosi",
   v_n: "Tashkilotchi",
-  v_pending: "Birinchi videodagi tashkilotchining ism-familiyasi va lavozimi tez orada qoʻshiladi.",
 
   sp_h: "Spikerlar",
   sp_lead: "Barcha maʼruzalar xoʻjaliklarning aniq mavzulariga bagʻishlangan. Har bir maʼruzada kimga foydali ekani koʻrsatilgan.",
@@ -254,6 +253,8 @@
   ve_ya: "Yandex xaritada ochish",
   alt_venue: "Qozoq milliy agrar tadqiqot universitetining bosh binosi, Olmaota",
   mz_label: "Forum yoʻnalishlari",
+  mz_pause: "Harakatni toʻxtatib turish",
+  mz_play: "Harakatni davom ettirish",
 
   fq_h: "Koʻp beriladigan savollar",
   fq_lead: "Javob topmasangiz, WhatsApp orqali yozing.",

@@ -39,7 +39,7 @@ One day, 3 December 2026 (guests arrive 2 December). Registration 08:30-09:30, o
 - Never write the word "free" (kk тегін / ru бесплатно / zh 免费 / uz bepul / ky акысыз) about participation; never "400 seats"; never "opening 09:00".
 - Never use the long dash in Kazakh or translated text.
 - Foreign guests' names are published only with their consent.
-- Open facts the client still owes: domain, Kaspi links, the full name and position of the organiser in the first video (Rasul), a decision on the end card of videos 2 and 3 (it says free participation, 09:00 and a phone number, which contradicts the paid packages and the 09:30 opening), speaker photos, partner logos, dinner restaurant, refund terms.
+- Open facts the client still owes: domain, Kaspi links, the position of Rasul Saduuly (organiser in the first video; his name is shown), speaker photos, partner logos, dinner restaurant, refund terms.
 
 ## Brand Commitments
 
@@ -48,7 +48,7 @@ Three logos, all provided: KASIPKER (navy and gold with a Kazakh ornament), CAEA
 ## Evidence on Hand
 
 - Photographs: `assets/photos/` (wheat field with mountains, herd, scientist in a greenhouse) and `Photo/` (12 pictures: horses, cattle, sheep, drip irrigation, solar irrigation, greenhouse robots, a tractor). No photograph of fish farming, of KazNARU, or of any speaker.
-- Video: three organiser videos from `V/` (vertical 9:16, Kazakh subtitles: Rasul Saduuly, then Mukashev Aitugan Adamkululy twice), web versions in `site/videos/organizer-1..3.mp4` with posters; `assets/promo-kz.mp4` and `assets/promo-ru.mp4` (38-40 s, vertical).
+- Video: three organiser videos from `V/` (vertical 9:16, Kazakh subtitles: Rasul Saduuly, then Mukashev Aitugan Adamkululy twice), web versions in `site/videos/organizer-1..3.mp4` with posters (videos 2 and 3 are cut before the speaker's "free for you" sentence and the end card that says free participation, 09:00 and a phone number, because that contradicts the paid packages and the 09:30 opening); `assets/promo-kz.mp4` and `assets/promo-ru.mp4` (38-40 s, vertical).
 - Documents: `assets/docs/programme-kk.pdf`, `assets/docs/packages-kk.docx`.
 - Speakers on record: five KazNARU scientists with talk titles; special speakers and honoured guests were **invited, not confirmed**.
 - **Absent, must not be invented:** testimonials, past-event statistics, partner logos, reviews, press, prices beyond the four above.

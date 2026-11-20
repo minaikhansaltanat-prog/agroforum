@@ -18,7 +18,7 @@ const used = new Set();
 for (const m of html.matchAll(/data-(?:i|ip|ia|alt|ul)="([^"]+)"/g)) used.add(m[1]);
 for (const m of html.matchAll(/tr\("([a-z0-9_]+)"\)/g)) used.add(m[1]);
 for (const k of used) if (!(k in ref)) bad(`key used in HTML/JS but missing in kk: ${k}`);
-for (const k of refKeys) if (!used.has(k) && !["title", "desc", "og_desc", "h_full", "wa_hello", "f_sending", "f_fail", "c_all", "c_left", "ok_p", "ok_p2", "n_menu_close"].includes(k)) console.log(`  · unused key in kk: ${k}`);
+for (const k of refKeys) if (!used.has(k) && !["title", "desc", "og_desc", "h_full", "wa_hello", "f_sending", "f_fail", "c_all", "c_left", "ok_p", "ok_p2", "n_menu_close", "mz_play"].includes(k)) console.log(`  · unused key in kk: ${k}`);
 
 const FORBID = [/—/, /–/, /тегін/i, /бесплатн/i, /免费/, /bepul/i, /акысыз/i, /\b400\b/, /09:00/];
 const CYR = /[А-Яа-яЁёӘәІіҒғҚқҢңӨөҰұҮүҺһ]/;

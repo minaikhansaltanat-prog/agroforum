@@ -36,6 +36,7 @@
       { "name": "reveal", "value": "opacity + translate3d(0,26px,0), .8s, delay n*90ms", "purpose": "Scroll reveal." },
       { "name": "hero-rise", "value": "translate3d(0,20px,0), .8s, delays 0 to .3s", "purpose": "Hero copy entrance; text is never hidden." },
       { "name": "panel-in", "value": "opacity + translateY(8px), .5s", "purpose": "Dialogue answer, FAQ answer." },
+      { "name": "photo-belt", "value": "translate3d(0 to -50%), 50s linear infinite, phones only", "purpose": "Sector photos drift left on phones; paused by touch-hold or the 44px button; reduced motion keeps the swipe rail." },
       { "name": "reduced-motion", "value": "all durations .001ms, reveal shown, parallax/counting/smooth-scroll off", "purpose": "prefers-reduced-motion: reduce." }
     ],
     "breakpoints": [

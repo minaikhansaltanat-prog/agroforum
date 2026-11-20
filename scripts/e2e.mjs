@@ -24,6 +24,7 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
 
   ok((await page.$eval("html", (e) => e.lang)) === "kk", "default language is Kazakh");
   ok((await page.$eval(".passes", (e) => getComputedStyle(e).display)) === "grid", "the whole stylesheet applies at desktop width (no unclosed CSS block)");
+  ok((await page.$eval("#mosaic", (m) => getComputedStyle(m).animationName)) === "none", "desktop: the sector photos stay a still grid");
 
   await page.click("#langBtn"); await sleep(250);
   ok(await page.$eval("#langList", (e) => !e.hidden), "language dropdown opens");
@@ -86,6 +87,25 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
   await sleep(500);
   await page.click("#promoWrap .vid__play"); await sleep(1500);
   ok((await page.$eval("#promo", (v) => v.currentSrc)).endsWith("promo-ru.mp4"), "Russian page plays the Russian promo file");
+  await page.close();
+}
+
+/* ---------- sector photo belt on phones: it runs to the left and the button pauses it ---------- */
+{
+  const page = await browser.newPage();
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  await page.goto(base + "/?lang=kk", { waitUntil: "networkidle2" });
+  await page.evaluate(() => document.querySelector(".mosaic").scrollIntoView({ block: "center" }));
+  await sleep(600);
+  const belt = () => page.$eval("#mosaic", (m) => getComputedStyle(m).animationName + "/" + getComputedStyle(m).animationPlayState);
+  const left = () => page.$eval("#mosaic .mz", (f) => f.getBoundingClientRect().left);
+  ok((await belt()) === "belt/running", "phone: the sector photos run as a belt");
+  const a = await left(); await sleep(700);
+  ok((await left()) < a - 10, "phone: the belt moves to the left");
+  await page.tap("#mzCtl"); await sleep(250);
+  ok((await belt()) === "belt/paused", "phone: the pause button stops the belt");
+  const b = await left(); await sleep(500);
+  ok((await left()) === b, "phone: a paused belt stays still");
   await page.close();
 }
 
