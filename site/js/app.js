@@ -428,7 +428,6 @@
   /* ---------- links from config ---------- */
   var g = $("#mapGis"), y = $("#mapYa");
   if (g && C.maps) g.href = C.maps.gis; if (y && C.maps) y.href = C.maps.yandex;
-  var sl = $("#siteLink"); if (sl && C.site) { sl.href = C.site; sl.textContent = C.site.replace(/^https?:\/\//, ""); }
 
   /* ---------- partner logo slots ---------- */
   (function () {

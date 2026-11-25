@@ -57,7 +57,7 @@ npm run shot           # скриншот: node screenshot.mjs http://localhost:
 
 Репозиторийдің түбірінде `vercel.json` бар (`outputDirectory: site`), сондықтан Vercel жобасын осы репозиторийге байлауға болады (Framework: Other, build командасы бос). Немесе Root Directory ретінде `site` көрсетіңіз. Консольден: `cd site && vercel --prod` (жоба `agroforum-2026`).
 
-Домен қосылған соң `agroforum-2026.vercel.app` мекенжайын `site/index.html` (canonical, og:url, og:image, hreflang, JSON-LD), `site/robots.txt`, `site/sitemap.xml`, `site/js/config.js` (`site`) ішінде жаңа доменге ауыстырыңыз. Vercel Analytics өзі қосылады (Project > Analytics). Оқиғалар: тіркелу батырмалары, пакет таңдау, WhatsApp, форма, бейне, тіл ауыстыру.
+Домен қосылған соң `agroforum-2026.vercel.app` мекенжайын `site/index.html` (canonical, og:url, og:image, hreflang, JSON-LD), `site/robots.txt`, `site/sitemap.xml` ішінде жаңа доменге ауыстырыңыз. Vercel Analytics өзі қосылады (Project > Analytics). Оқиғалар: тіркелу батырмалары, пакет таңдау, WhatsApp, форма, бейне, тіл ауыстыру.
 
 ## Клиенттен әлі күтілетіндер (TZ.md, 10-бөлім)
 
