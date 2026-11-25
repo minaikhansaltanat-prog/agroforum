@@ -28,11 +28,17 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
 
   await page.click("#langBtn"); await sleep(250);
   ok(await page.$eval("#langList", (e) => !e.hidden), "language dropdown opens");
-  await page.click('#langList [data-lang="zh"]'); await sleep(300);
+  await page.click('#langList [data-lang="zh"]');
+  await page.waitForFunction(() => document.documentElement.lang === "zh-Hans", { timeout: 5000 }).catch(() => {}); await sleep(300);
   ok((await page.$eval("html", (e) => e.lang)) === "zh-Hans", "switching to Chinese sets lang=zh-Hans");
   ok((await page.$eval(".hero__t2", (e) => e.textContent)).includes("科学"), "Chinese hero tagline rendered");
   await page.click("#langBtn"); await sleep(200); await page.click('#langList [data-lang="kk"]'); await sleep(300);
   ok((await page.$eval(".hero__t2", (e) => e.textContent)).includes("диалог"), "back to Kazakh");
+
+  await page.evaluate(() => document.querySelector("#hostCar").scrollIntoView({ block: "center" }));
+  await sleep(500);
+  await page.click('#hostCar [data-car="1"]'); await sleep(900);
+  ok((await page.$eval("#hostCar .car__dot:nth-child(2)", (e) => e.getAttribute("aria-current"))) === "true" && (await page.$eval("#hostCar .car__track", (e) => e.scrollLeft)) > 100, "host carousel: the next arrow shows photo 2");
 
   await page.evaluate(() => document.querySelector("#get").scrollIntoView());
   await sleep(500);
@@ -43,9 +49,19 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
 
   await page.evaluate(() => document.querySelector("#tickets").scrollIntoView());
   await sleep(400);
+  await page.click('#tickets [data-payb="participant"]');
+  await page.waitForFunction(() => document.querySelector("#pay-participant .paybox__qr").naturalWidth > 0, { timeout: 4000 });
+  ok(await page.$eval("#pay-participant", (e) => !e.hidden && e.querySelector("[data-pay-link]").href === "https://pay.kaspi.kz/pay/k1vgbfns" && !!(e.querySelector(".paybox__qr").compareDocumentPosition(e.querySelector("[data-pay-link]")) & 4)), "card button 'Төлем' opens the Kaspi QR with the pay link under it");
+  await page.click('#tickets [data-payb="participant"]');
+  ok(await page.$eval("#pay-participant", (e) => e.hidden), "the card button closes the payment panel again");
   await page.click('#tickets a[data-pkg="dinner"]'); await sleep(600);
   ok(await page.$eval('input[name="pkg"][value="dinner"]', (e) => e.checked), "buy button preselects the Dinner package");
 
+  const crm = []; // from here on form submissions are caught, so a test run never writes a lead into the live CRM
+  await page.setRequestInterception(true);
+  page.on("request", (r) => {
+    if (r.url().includes("script.google.com")) { crm.push(r.postData() || ""); r.respond({ status: 200, contentType: "application/json", body: "{}" }); } else r.continue();
+  });
   await page.evaluate(() => document.querySelector("#form").scrollIntoView());
   await sleep(500);
   await page.click("#submit"); await sleep(300);
@@ -56,6 +72,9 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
   await page.select("#f-region", "zhetysu");
   await page.click("#submit"); await sleep(800);
   ok(await page.$eval("#ok", (e) => !e.hidden), "valid form shows the success screen");
+  const lead = JSON.parse(crm[0] || "{}");
+  ok(crm.length === 1 && lead.name === "Ерлан Сапаров" && lead.package === "Кешкі ас" && lead.region === "Жетісу облысы" && lead.translation === "Қазақша" && lead.phone === "+7 777 123 45 67", "the form sends one CRM lead with Kazakh labels: " + JSON.stringify(lead));
+  ok((await page.$eval("#okPay", (e) => e.href)) === "https://pay.kaspi.kz/pay/k1vgbfns" && (await page.$eval("#okPayBox .paybox__sum b", (e) => e.textContent)).includes("30"), "success screen shows the amount, the QR and the Kaspi link");
   ok((await page.$eval("#okWa", (e) => e.href)).startsWith("https://wa.me/"), "WhatsApp message link is prepared");
 
   // videos: only one at a time

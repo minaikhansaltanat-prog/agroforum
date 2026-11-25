@@ -27,6 +27,10 @@
     return ((w[0] || "")[0] || "") + ((w[1] || "")[0] || "");
   }
 
+  /* Kazakh text of a key: the CRM stores Kazakh labels whatever language the visitor reads */
+  function kk(key) { return ((window.I18N || {}).kk || {})[key] || ""; }
+  function kkOpt(sel) { var o = sel.options[sel.selectedIndex]; return sel.value && o ? kk(o.getAttribute("data-i")) || o.text : ""; }
+
   function renderAvatars() {
     $$(".sp__av[data-ini]").forEach(function (av) {
       var card = av.closest("article");
@@ -48,6 +52,10 @@
     for (var i = 0; i < total; i++) h += '<i class="' + (i < left ? "" : "x") + '"></i>';
     bar.style.gridTemplateColumns = "repeat(" + total + ",1fr)";
     bar.innerHTML = h;
+  }
+
+  function renderCar() {
+    $$(".car__dot").forEach(function (d, i) { d.setAttribute("aria-label", tr("car_dot").replace("{n}", i + 1)); });
   }
 
   function waLink(text) { return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(text); }
@@ -87,7 +95,7 @@
     // interpretation language default follows site language
     var sel = $("#f-lang"); if (sel && !sel.dataset.touched) sel.value = L;
     if (!(initial && L === "kk")) renderAvatars();
-    renderSlots(); setPromo(); renderPeople();
+    renderSlots(); setPromo(); renderPeople(); renderCar();
     var burger = $("#burger");
     burger.setAttribute("aria-label", tr(root.classList.contains("menu-open") ? "n_menu_close" : "n_menu_open"));
     ["#waHelp", "#waFaq", "#waFoot"].forEach(function (s) { var e = $(s); if (e) e.href = waLink(tr("wa_hello")); });
@@ -348,6 +356,19 @@
     if (t) track(t.getAttribute("data-track"));
   });
 
+  /* "Төлем" on a package card opens the Kaspi QR with the payment link under it */
+  $$("[data-payb]").forEach(function (b) {
+    var box = document.getElementById(b.getAttribute("aria-controls")), link = (C.pay || {})[b.getAttribute("data-payb")];
+    if (!link) { b.hidden = true; return; }
+    $("[data-pay-link]", box).href = link;
+    b.addEventListener("click", function () {
+      var open = box.hidden;
+      box.hidden = !open;
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { track("pay_open", { pkg: b.getAttribute("data-payb") }); box.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); }
+    });
+  });
+
   var phone = $("#f-phone");
   phone.addEventListener("input", function () {
     var v = phone.value, d = v.replace(/\D/g, "");
@@ -374,8 +395,8 @@
     var nm = ($("#f-name") || {}).value || "";
     var msg = tr("wa_hello") + "\n" + tr("f_pk") + ": " + tr(PKG[pkg][0]) + " (" + PKG[pkg][1] + ")" + (nm ? "\n" + nm : "");
     var w = $("#okWa"); if (w) w.href = waLink(msg);
-    var p = $("#okPay"), link = (C.pay || {})[pkg];
-    if (p) { if (link) { p.href = link; p.hidden = false; } else { p.hidden = true; } }
+    var link = (C.pay || {})[pkg], box = $("#okPayBox");
+    if (box) { box.hidden = !link; if (link) { $("#okPay").href = link; $("#okSum").textContent = PKG[pkg][1]; } }
     var okP = $("#okP"); if (okP) { var k = link ? "ok_p" : "ok_p2"; okP.setAttribute("data-i", k); okP.innerHTML = tr(k); }
   }
 
@@ -386,10 +407,10 @@
     var ok1 = mark("f-name", name.length > 1), ok2 = mark("f-phone", digits.length >= 10), ok3 = mark("f-region", !!$("#f-region").value);
     if (!(ok1 && ok2 && ok3)) { var bad = $(".field.bad input, .field.bad select", form); if (bad) bad.focus(); return; }
     var pkg = $('input[name="pkg"]:checked', form).value;
+    var fl = $("#f-lang");   /* keys and Kazakh labels exactly as the CRM's Apps Script reads them (agroforum2026.github.io/crm) */
     var payload = {
-      ts: new Date().toISOString(), name: name, phone: ph.trim(), region: $("#f-region").value, sector: $("#f-sector").value,
-      package: pkg, price: PKG[pkg][1], interpretation: $("#f-lang").value, question: $("#f-q").value.trim(), siteLang: L,
-      page: location.href.split("#")[0]
+      time: new Date().toISOString(), name: name, phone: ph.trim(), region: kkOpt($("#f-region")), industry: kkOpt($("#f-sector")),
+      package: kk(PKG[pkg][0]), translation: fl.options[fl.selectedIndex].text, question: $("#f-q").value.trim(), site_lang: L
     };
     var btn = $("#submit"); btn.disabled = true; var lab = $("span", btn); var old = lab.textContent; lab.textContent = tr("f_sending");
     function done() {
@@ -452,6 +473,20 @@
     if (btn) btn.addEventListener("click", function () {
       var k = sec.classList.toggle("is-paused") ? "mz_play" : "mz_pause";
       btn.setAttribute("data-ia", k); btn.setAttribute("aria-label", tr(k));
+    });
+  })();
+
+  /* host photos: a scroll-snap track (swipe, wheel, keys) with arrows and dots; no autoplay */
+  (function () {
+    var car = $("#hostCar"); if (!car) return;
+    var track = $(".car__track", car), dots = $$(".car__dot", car), n = dots.length, cur = 0;
+    function mark() { dots.forEach(function (d, i) { if (i === cur) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); }); }
+    function go(i) { cur = (i + n) % n; mark(); track.scrollTo({ left: cur * track.clientWidth, behavior: reduce ? "auto" : "smooth" }); }
+    track.addEventListener("scroll", function () { var i = Math.round(track.scrollLeft / track.clientWidth); if (i !== cur && i >= 0 && i < n) { cur = i; mark(); } }, { passive: true });
+    $$("[data-car]", car).forEach(function (b) { b.addEventListener("click", function () { go(cur + (+b.getAttribute("data-car"))); }); });
+    dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); }); });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); } else if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1); }
     });
   })();
 

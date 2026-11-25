@@ -1,4 +1,5 @@
 /* Agroforum 2026: editable settings. Change values here, no other file needs touching. */
+var KASPI = "https://pay.kaspi.kz/pay/k1vgbfns"; /* Kaspi merchant link of ИП "МАРХАБА": one link for every package, the payer types the amount */
 window.AGRO = {
   /* Forum opening (Almaty time, UTC+5). Used by the countdown. */
   eventStart: "2026-12-03T09:30:00+05:00",
@@ -6,12 +7,13 @@ window.AGRO = {
   /* WhatsApp number in international format, digits only. It is used only inside links, never printed on the page. */
   whatsapp: "77471673817",
 
-  /* Google Apps Script web app URL that stores form submissions in Google Sheets.
-     Paste the "Web app" deployment URL here (see docs/google-apps-script.gs). */
-  sheetsUrl: "",
+  /* Google Apps Script web app of the CRM (agroforum2026.github.io/crm): every form submission becomes a lead there.
+     The same URL is hard-coded in the CRM page. Leave it empty and the form still works, but nothing is stored. */
+  sheetsUrl: "https://script.google.com/macros/s/AKfycbxh7JRw3gl9IMfSFOssaOZzRiCeKHKliwMcpMZJZENQi_r-jXo9TwjmVstYq-vr9D2s/exec",
 
-  /* Kaspi payment links (or QR pages), one per package. After the form is sent, the matching link opens. */
-  pay: { participant: "", dinner: "", exhibition: "", speaker: "" },
+  /* Kaspi payment link per package (QR image: img/kaspi-qr.png). It shows under the QR on the package cards and after the form.
+     An empty value hides the "Төлем" button of that package. */
+  pay: { participant: KASPI, dinner: KASPI, exhibition: KASPI, speaker: KASPI },
 
   /* Partner places: total and how many are still free. Edit "partnerLeft" by hand as places are sold. */
   partnerTotal: 20,

@@ -34,12 +34,12 @@ One day, 3 December 2026 (guests arrive 2 December). Registration 08:30-09:30, o
 
 - Packages: Participant 5 000 ₸; Dinner 30 000 ₸ (recommended); Exhibition 100 000 ₸; Speaker 150 000 ₸. Full contents in `assets/docs/packages-kk.docx`.
 - Seats: 250 participants; 20 partner places (remaining count edited by hand).
-- Registration form goes to Google Sheets (Apps Script webhook), then a Kaspi payment link or QR opens per package. **Links are not yet provided by the client.**
+- Registration form goes to the CRM's Google Apps Script (each submission becomes a lead), then the Kaspi QR and link of ИП "МАРХАБА" (one for every package, the payer types the amount) show under the amount. Payments are not reported back: a manager marks them paid in the CRM.
 - No phone number is shown on the site, only a WhatsApp button (the number lives inside the link).
 - Never write the word "free" (kk тегін / ru бесплатно / zh 免费 / uz bepul / ky акысыз) about participation; never "400 seats"; never "opening 09:00".
 - Never use the long dash in Kazakh or translated text.
 - Foreign guests' names are published only with their consent.
-- Open facts the client still owes: domain, Kaspi links, speaker photos, partner logos, dinner restaurant, refund terms.
+- Open facts the client still owes: domain, speaker photos, partner logos, dinner restaurant, refund terms.
 
 ## Brand Commitments
 

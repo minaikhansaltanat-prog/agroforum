@@ -80,6 +80,8 @@
 <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></symbol>
 <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
 <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></symbol>
+<symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.3 6.7h.01"/></symbol>
+<symbol id="i-qr" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1.5"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="1.5"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="1.5"/><path d="M14 14h2.5v2.5M20.5 14v.01M14 20.5h.01M17.5 20.5h3V17.5"/></symbol>
 </defs>
 </svg>
 
@@ -377,6 +379,27 @@
       <p class="lead rv" style="--d:1" data-i="sp_lead">Баяндамалардың бәрі нақты шаруашылық тақырыптары бойынша. Әр баяндамада кімге пайдалы екені көрсетілген.</p>
     </header>
 
+    <h3 class="grp rv" data-i="sp_g0">Форум жүргізушісі</h3>
+    <article class="host rv" aria-labelledby="host-n">
+      <div class="car" id="hostCar" role="group" aria-roledescription="carousel" aria-label="Абай Асылхан фотолары" data-ia="car_label">
+        <div class="car__track" tabindex="0">
+          <figure class="car__slide" role="group" aria-roledescription="slide" aria-label="1 / 3"><img src="img/host-1-840.webp" srcset="img/host-1-480.webp 480w, img/host-1-840.webp 840w" sizes="(max-width: 859px) min(84vw, 420px), 380px" width="840" height="1260" alt="Абай Асылхан ашық түсті жолақты костюммен күліп отыр" data-alt="host_a1" loading="lazy" decoding="async"></figure>
+          <figure class="car__slide" role="group" aria-roledescription="slide" aria-label="2 / 3"><img src="img/host-2-840.webp" srcset="img/host-2-480.webp 480w, img/host-2-840.webp 840w" sizes="(max-width: 859px) min(84vw, 420px), 380px" width="840" height="1260" alt="Абай Асылхан қара костюммен сахнада микрофонға сөйлеп тұр" data-alt="host_a2" loading="lazy" decoding="async"></figure>
+          <figure class="car__slide" role="group" aria-roledescription="slide" aria-label="3 / 3"><img src="img/host-3-840.webp" srcset="img/host-3-480.webp 480w, img/host-3-840.webp 840w" sizes="(max-width: 859px) min(84vw, 420px), 380px" width="840" height="1260" alt="Абай Асылхан сахнада іс-шара жүргізіп тұр" data-alt="host_a3" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="car__ctl">
+          <button class="car__btn car__btn--prev" type="button" data-car="-1" aria-label="Алдыңғы фото" data-ia="car_prev"><svg class="i"><use href="#i-arrow"/></svg></button>
+          <div class="car__dots"><button class="car__dot" type="button" aria-label="1-фото" aria-current="true"></button><button class="car__dot" type="button" aria-label="2-фото"></button><button class="car__dot" type="button" aria-label="3-фото"></button></div>
+          <button class="car__btn" type="button" data-car="1" aria-label="Келесі фото" data-ia="car_next"><svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="host__body">
+        <h4 id="host-n" data-i="host_n">Абай Асылхан</h4>
+        <p data-i="host_bio">Кәсіби актер, New Vision халықаралық форумы мен Димаш Құдайбергеннің концертін жүргізген жүргізуші, кәсіби диктор, блогер. Шешендік өнер бойынша ментор. Ұлттық құндылықтарға негізделген «Жорық» атпен шабу жобасының авторы.</p>
+        <a class="btn btn--ghost" href="https://www.instagram.com/abay.asylkhan/" target="_blank" rel="noopener" aria-label="Instagram: @abay.asylkhan" data-track="host_instagram"><svg class="i"><use href="#i-insta"/></svg><span>@abay.asylkhan</span><svg class="i i--s"><use href="#i-ext"/></svg></a>
+      </div>
+    </article>
+
     <h3 class="grp rv" data-i="sp_g1">ҚазҰАЗУ ғалымдары</h3>
     <div class="sgrid sgrid--main">
       <article class="sp rv" style="--d:0"><div class="sp__top"><span class="sp__av" data-ini="1">ИҚ</span><div><h4 data-i="sp1n">Исхан Қайрат</h4><p class="sp__deg" data-i="deg_c">Ауыл шаруашылығы ғылымдарының кандидаты</p></div></div><p class="sp__label" data-i="sp_talk">Баяндама</p><p class="sp__topic" data-i="tp1">Отандық жылқы тұқымдарының селекциясы</p><p class="sp__tag"><svg class="i"><use href="#i-sprout"/></svg><span data-i="tg1">Жылқы шаруашылығы</span></p></article>
@@ -447,6 +470,15 @@
           <p class="pass__perk"><span class="ico ico--gold"><svg class="i"><use href="#i-coffee"/></svg></span><span data-i="pk_coffee">Таңертеңгі <span class="nb">кофе-брейк</span></span></p>
           <ul class="ticks" data-ul="pk1_list"><li>Тіркеу, бейдж және залдағы жеке орын</li><li>Барлық баяндамалар мен панельдік сессиялар</li><li>Синхронды аударма: спикерді өз тіліңізде тыңдайсыз</li><li>Көрме аймағы: техника, тұқым, жем, ветеринариялық препараттарды көріп, сол жерде сатып аласыз</li><li>Нетворкинг: төрт облыстың 250 кәсіпкерімен танысу</li><li>Әкімдік мамандарымен кездесу</li><li>Серіктестердің жарнамалық пакеті: буклеттер мен арнайы ұсыныстар</li><li>Жобаңызды іріктеуге өтінім беру мүмкіндігі</li><li>Қатысу сертификаты</li></ul>
           <a class="btn btn--outline btn--lg btn--block" href="#register" data-pkg="participant" data-track="buy_participant"><span data-i="pk_buy">Сатып алу</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--lg btn--block payb" type="button" data-payb="participant" aria-expanded="false" aria-controls="pay-participant"><svg class="i"><use href="#i-qr"/></svg><span data-i="pay_btn">Төлем</span></button>
+          <div class="paybox" id="pay-participant" hidden>
+            <p class="paybox__sum"><span data-i="pay_sum">Төлем сомасы</span><b>5&nbsp;000&nbsp;₸</b></p>
+            <img class="paybox__qr" src="img/kaspi-qr.png" width="848" height="848" alt="Kaspi QR: төлем коды" data-alt="pay_qr_alt" loading="lazy" decoding="async">
+            <p class="paybox__scan" data-i="pay_scan">Kaspi қосымшасымен сканерлеңіз</p>
+            <a class="btn btn--gold btn--lg btn--block" href="#" target="_blank" rel="noopener" data-pay-link data-track="pay_click"><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+            <p class="paybox__to" data-i="pay_to">Төлем алушы: ИП «МАРХАБА»</p>
+            <p class="paybox__note"><span data-i="pay_note">Төлегеннен кейін орын бекітілуі үшін тіркеу формасын толтырыңыз.</span> <a href="#register" data-pkg="participant" data-i="pay_reg">Формаға өту</a></p>
+          </div>
           <p class="pass__micro"><svg class="i"><use href="#i-lock"/></svg><span data-i="pk_micro">Төлем Kaspi арқылы. Орын төлем түскен кезек бойынша беріледі.</span></p>
         </div>
       </article>
@@ -463,6 +495,15 @@
           <p class="pass__plus" data-i="pk_plus">«Қатысушы» пакетінің барлығы, сонымен қатар:</p>
           <ul class="ticks" data-ul="pk2_list"><li>Мейрамханада салтанатты кешкі ас, 18:30</li><li>Спикерлермен, шетелдік ғалымдармен және әкімдік басшыларымен бір дастарқан басында</li><li>Сұрақ-жауап сессиясы: нақты мәселеңізді еркін жағдайда қоясыз</li><li>Жобаңызды инвесторлар мен ірі кәсіпкерлерге ауызша таныстыру мүмкіндігі</li><li>Ән және рухани кеш</li><li>Залдың алдыңғы қатарындағы орын</li></ul>
           <a class="btn btn--gold btn--lg btn--block" href="#register" data-pkg="dinner" data-track="buy_dinner"><span data-i="pk_buy">Сатып алу</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--lg btn--block payb" type="button" data-payb="dinner" aria-expanded="false" aria-controls="pay-dinner"><svg class="i"><use href="#i-qr"/></svg><span data-i="pay_btn">Төлем</span></button>
+          <div class="paybox" id="pay-dinner" hidden>
+            <p class="paybox__sum"><span data-i="pay_sum">Төлем сомасы</span><b>30&nbsp;000&nbsp;₸</b></p>
+            <img class="paybox__qr" src="img/kaspi-qr.png" width="848" height="848" alt="Kaspi QR: төлем коды" data-alt="pay_qr_alt" loading="lazy" decoding="async">
+            <p class="paybox__scan" data-i="pay_scan">Kaspi қосымшасымен сканерлеңіз</p>
+            <a class="btn btn--gold btn--lg btn--block" href="#" target="_blank" rel="noopener" data-pay-link data-track="pay_click"><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+            <p class="paybox__to" data-i="pay_to">Төлем алушы: ИП «МАРХАБА»</p>
+            <p class="paybox__note"><span data-i="pay_note">Төлегеннен кейін орын бекітілуі үшін тіркеу формасын толтырыңыз.</span> <a href="#register" data-pkg="dinner" data-i="pay_reg">Формаға өту</a></p>
+          </div>
           <p class="pass__micro"><svg class="i"><use href="#i-lock"/></svg><span data-i="pk_micro">Төлем Kaspi арқылы. Орын төлем түскен кезек бойынша беріледі.</span></p>
         </div>
       </article>
@@ -500,6 +541,15 @@
           <p class="pass__perk"><span class="ico ico--gold"><svg class="i"><use href="#i-coffee"/></svg></span><span data-i="pk_coffee">Таңертеңгі <span class="nb">кофе-брейк</span></span></p>
           <ul class="ticks" data-ul="pc1_list"><li>Көрме аймағында 2 метрлік орын және үстел</li><li>Өнімді көрсету, сату және тапсырыс жинау құқығы</li><li>Үш аяқты жарнамалық штендер</li><li>Буклет пен флаер 250 қатысушының пакетіне салынады</li><li>Жарнамалық ролик экранда кезекпен көрсетіледі</li><li>Екі өкілге «Қатысушы» пакеті</li><li>Сайтта логотип</li></ul>
           <a class="btn btn--outline btn--lg btn--block" href="#register" data-pkg="exhibition" data-track="buy_exhibition"><span data-i="pc_buy">Серіктес болу</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--lg btn--block payb" type="button" data-payb="exhibition" aria-expanded="false" aria-controls="pay-exhibition"><svg class="i"><use href="#i-qr"/></svg><span data-i="pay_btn">Төлем</span></button>
+          <div class="paybox" id="pay-exhibition" hidden>
+            <p class="paybox__sum"><span data-i="pay_sum">Төлем сомасы</span><b>100&nbsp;000&nbsp;₸</b></p>
+            <img class="paybox__qr" src="img/kaspi-qr.png" width="848" height="848" alt="Kaspi QR: төлем коды" data-alt="pay_qr_alt" loading="lazy" decoding="async">
+            <p class="paybox__scan" data-i="pay_scan">Kaspi қосымшасымен сканерлеңіз</p>
+            <a class="btn btn--gold btn--lg btn--block" href="#" target="_blank" rel="noopener" data-pay-link data-track="pay_click"><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+            <p class="paybox__to" data-i="pay_to">Төлем алушы: ИП «МАРХАБА»</p>
+            <p class="paybox__note"><span data-i="pay_note">Төлегеннен кейін орын бекітілуі үшін тіркеу формасын толтырыңыз.</span> <a href="#register" data-pkg="exhibition" data-i="pay_reg">Формаға өту</a></p>
+          </div>
         </div>
       </article>
       <article class="pass pass--p pass--rec rv" style="--d:1">
@@ -514,6 +564,15 @@
           <p class="pass__plus" data-i="pc_plus">«Көрме» пакетінің барлығы, сонымен қатар:</p>
           <ul class="ticks" data-ul="pc2_list"><li>Сахнада 7 минут сөйлеп, таныстырылым көрсетесіз</li><li>Жүргізуші компанияңызды форум серіктесі ретінде атап өтеді</li><li>Өкілге «Кешкі ас» пакеті</li><li>Сөйлеген сөзіңіздің фото және бейнежазбасы</li><li>Сайтта логотип басым орында</li></ul>
           <a class="btn btn--gold btn--lg btn--block" href="#register" data-pkg="speaker" data-track="buy_speaker"><span data-i="pc_buy">Серіктес болу</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--lg btn--block payb" type="button" data-payb="speaker" aria-expanded="false" aria-controls="pay-speaker"><svg class="i"><use href="#i-qr"/></svg><span data-i="pay_btn">Төлем</span></button>
+          <div class="paybox" id="pay-speaker" hidden>
+            <p class="paybox__sum"><span data-i="pay_sum">Төлем сомасы</span><b>150&nbsp;000&nbsp;₸</b></p>
+            <img class="paybox__qr" src="img/kaspi-qr.png" width="848" height="848" alt="Kaspi QR: төлем коды" data-alt="pay_qr_alt" loading="lazy" decoding="async">
+            <p class="paybox__scan" data-i="pay_scan">Kaspi қосымшасымен сканерлеңіз</p>
+            <a class="btn btn--gold btn--lg btn--block" href="#" target="_blank" rel="noopener" data-pay-link data-track="pay_click"><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+            <p class="paybox__to" data-i="pay_to">Төлем алушы: ИП «МАРХАБА»</p>
+            <p class="paybox__note"><span data-i="pay_note">Төлегеннен кейін орын бекітілуі үшін тіркеу формасын толтырыңыз.</span> <a href="#register" data-pkg="speaker" data-i="pay_reg">Формаға өту</a></p>
+          </div>
         </div>
       </article>
     </div>
@@ -584,7 +643,13 @@
         <span class="ok__ico"><svg class="i"><use href="#i-check"/></svg></span>
         <h3 data-i="ok_h">Рақмет! Өтінішіңіз қабылданды</h3>
         <p id="okP" data-i="ok_p">Орныңызды бекіту үшін төлем жасаңыз.</p>
-        <a class="btn btn--gold btn--lg btn--block" id="okPay" href="#" target="_blank" rel="noopener" data-track="pay_click" hidden><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+        <div class="paybox paybox--ok" id="okPayBox" hidden>
+          <p class="paybox__sum"><span data-i="pay_sum">Төлем сомасы</span><b id="okSum"></b></p>
+          <img class="paybox__qr" src="img/kaspi-qr.png" width="848" height="848" alt="Kaspi QR: төлем коды" data-alt="pay_qr_alt" loading="lazy" decoding="async">
+          <p class="paybox__scan" data-i="pay_scan">Kaspi қосымшасымен сканерлеңіз</p>
+          <a class="btn btn--gold btn--lg btn--block" id="okPay" href="#" target="_blank" rel="noopener" data-track="pay_click"><svg class="i"><use href="#i-bag"/></svg><span data-i="ok_pay">Kaspi арқылы төлеу</span></a>
+          <p class="paybox__to" data-i="pay_to">Төлем алушы: ИП «МАРХАБА»</p>
+        </div>
         <a class="btn btn--wa btn--lg btn--block" id="okWa" href="#" target="_blank" rel="noopener" data-track="whatsapp_click"><svg class="i"><use href="#i-chat"/></svg><span data-i="ok_wa"><span class="nb">WhatsApp-қа</span> жазу</span></a>
       </div>
     </form>
