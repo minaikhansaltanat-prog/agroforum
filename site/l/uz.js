@@ -127,6 +127,7 @@
   bl2a: "Sagatbek Ernur toʻgʻdagi oʻtloqda kulib oʻtiribdi",
   bl_t1: "Qishloq xoʻjaligini ommalashtirib kelayotgan aka-uka blogerlar.",
   bl_t2: "Bu sohada qozoq tilidagi bozorda №1 blogerlar.",
+  bl_tp: "Yangi zamon fermeri qanday boʻlishi kerak?",
   sp_g2: "Maxsus maʼruzachilar",
   chip_inv: "Taklif qilingan",
   chip_soon: "Ism-familiyasi tez orada eʼlon qilinadi",
