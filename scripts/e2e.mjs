@@ -109,7 +109,7 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
   await page.close();
 }
 
-/* ---------- fourth organiser video: kk and ru have their own file, other languages get the Russian one ---------- */
+/* ---------- the chairman's organiser video (organizer-4, first card): kk and ru have their own file, other languages get the Russian one ---------- */
 {
   const page = await browser.newPage();
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
@@ -117,13 +117,14 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
     await page.goto(base + "/?lang=" + lang, { waitUntil: "networkidle2" });
     await sleep(500);
     const got = await page.$eval("#orgv4", (v) => ({ src: v.querySelector("source").getAttribute("src"), name: v.closest(".vcard").querySelector(".vcard__name").textContent.trim() }));
-    ok(got.src.endsWith(file) && got.name === name, lang + " page: fourth organiser video is " + file + ", caption " + name + " (got " + got.src + ", " + got.name + ")");
+    ok(got.src.endsWith(file) && got.name === name, lang + " page: the chairman's video is " + file + ", caption " + name + " (got " + got.src + ", " + got.name + ")");
   }
+  ok(await page.$eval("#vrail .vcard:first-child", (c) => !!c.querySelector("#orgv4")), "the chairman's card is the first one in the organisers' rail, before Rasul's");
   await page.goto(base + "/?lang=ru", { waitUntil: "networkidle2" });
   await page.evaluate(() => document.querySelector("#orgv4").closest(".vcard").scrollIntoView({ block: "center", inline: "center", behavior: "instant" }));
   await sleep(500);
   await page.click("#orgv4 ~ .vid__play"); await sleep(1500);
-  ok((await page.$eval("#orgv4", (v) => v.currentSrc)).endsWith("organizer-4-ru.mp4"), "Russian page plays the Russian file of the fourth organiser video");
+  ok((await page.$eval("#orgv4", (v) => v.currentSrc)).endsWith("organizer-4-ru.mp4"), "Russian page plays the Russian file of the chairman's video");
   await page.close();
 }
 

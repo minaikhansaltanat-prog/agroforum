@@ -50,6 +50,16 @@ window.AGRO = {
      Example: { name: "Аты-жөні", role: "Лауазымы" } (role is optional). A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
   videoPeople: [
     {
+      name: { kk: "Бастаубаев Жұмабек Әндешұлы", ru: "Бастаубаев Жумабек Андешевич" },
+      role: {
+        kk: "«KASIPKER» альянсының төрағасы, инвестор, кәсіпкер",
+        ru: "Председатель альянса «KASIPKER», инвестор, предприниматель",
+        zh: "“KASIPKER”联盟主席、投资人、企业家",
+        uz: "“KASIPKER” alyansi raisi, investor, tadbirkor",
+        ky: "«KASIPKER» альянсынын төрагасы, инвестор, ишкер"
+      }
+    },
+    {
       name: "Расул Сәдуұлы",
       role: {
         kk: "Орталық Азия кәсіпкерлер қауымдастығының негізін қалаушы",
@@ -77,16 +87,6 @@ window.AGRO = {
         zh: "中亚企业家协会和“KASIPKER”联盟创始人之一",
         uz: "Markaziy Osiyo Tadbirkorlari Assotsiatsiyasi va “KASIPKER” alyansining asoschilaridan biri",
         ky: "Борбордук Азия Ишкерлер Ассоциациясынын жана «KASIPKER» альянсынын негиз салуучуларынын бири"
-      }
-    },
-    {
-      name: { kk: "Бастаубаев Жұмабек Әндешұлы", ru: "Бастаубаев Жумабек Андешевич" },
-      role: {
-        kk: "«KASIPKER» альянсының төрағасы, инвестор, кәсіпкер",
-        ru: "Председатель альянса «KASIPKER», инвестор, предприниматель",
-        zh: "“KASIPKER”联盟主席、投资人、企业家",
-        uz: "“KASIPKER” alyansi raisi, investor, tadbirkor",
-        ky: "«KASIPKER» альянсынын төрагасы, инвестор, ишкер"
       }
     }
   ],
