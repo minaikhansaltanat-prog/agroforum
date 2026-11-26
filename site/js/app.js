@@ -60,16 +60,22 @@
 
   function waLink(text) { return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(text); }
 
-  function setPromo() {
-    var v = $("#promo"); if (!v) return;
-    var p = (C.promo || {})[L] || (C.promo || {}).ru || (C.promo || {}).kk;
+  /* a video whose file depends on the page language: the language's own file, else the Russian one (files: {kk: {src, poster}, ru: {...}}) */
+  function setLangVideo(v, files) {
+    var p = v && files && (files[L] || files.ru || files.kk);
     if (!p) return;
     var src = $("source", v);
     if (src.getAttribute("src") === p.src) return;
     var was = !v.paused; if (was) v.pause();
-    src.setAttribute("src", p.src); v.setAttribute("poster", p.poster);
+    src.setAttribute("src", p.src);
+    if (v.dataset.poster) v.dataset.poster = p.poster; else v.setAttribute("poster", p.poster); /* a poster still waiting for the lazy loader stays lazy */
     if (!v.readyState && !was) { v.dataset.stale = "1"; return; } /* never played: load() here would download the file despite preload="none"; start() reloads on the first play */
     delete v.dataset.stale; v.load(); var fig = v.closest(".vid"); if (fig) fig.classList.remove("is-playing", "is-paused");
+  }
+  function setLangVideos() {
+    setLangVideo($("#promo"), C.promo);
+    var lv = C.langVideo || {};
+    Object.keys(lv).forEach(function (id) { setLangVideo(document.getElementById(id), lv[id]); });
   }
 
   function apply(lang, initial) {
@@ -95,7 +101,7 @@
     // interpretation language default follows site language
     var sel = $("#f-lang"); if (sel && !sel.dataset.touched) sel.value = L;
     if (!(initial && L === "kk")) renderAvatars();
-    renderSlots(); setPromo(); renderPeople(); renderCar();
+    renderSlots(); setLangVideos(); renderPeople(); renderCar();
     var burger = $("#burger");
     burger.setAttribute("aria-label", tr(root.classList.contains("menu-open") ? "n_menu_close" : "n_menu_open"));
     ["#waHelp", "#waFaq", "#waFoot"].forEach(function (s) { var e = $(s); if (e) e.href = waLink(tr("wa_hello")); });

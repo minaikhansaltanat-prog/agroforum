@@ -109,6 +109,24 @@ const browser = await puppeteer.launch({ executablePath, headless: true, args: [
   await page.close();
 }
 
+/* ---------- fourth organiser video: kk and ru have their own file, other languages get the Russian one ---------- */
+{
+  const page = await browser.newPage();
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+  for (const [lang, file, name] of [["kk", "organizer-4-kk.mp4", "Бастаубаев Жұмабек Әндешұлы"], ["ru", "organizer-4-ru.mp4", "Бастаубаев Жумабек Андешевич"], ["zh", "organizer-4-ru.mp4", "Бастаубаев Жұмабек Әндешұлы"]]) {
+    await page.goto(base + "/?lang=" + lang, { waitUntil: "networkidle2" });
+    await sleep(500);
+    const got = await page.$eval("#orgv4", (v) => ({ src: v.querySelector("source").getAttribute("src"), name: v.closest(".vcard").querySelector(".vcard__name").textContent.trim() }));
+    ok(got.src.endsWith(file) && got.name === name, lang + " page: fourth organiser video is " + file + ", caption " + name + " (got " + got.src + ", " + got.name + ")");
+  }
+  await page.goto(base + "/?lang=ru", { waitUntil: "networkidle2" });
+  await page.evaluate(() => document.querySelector("#orgv4").closest(".vcard").scrollIntoView({ block: "center", inline: "center", behavior: "instant" }));
+  await sleep(500);
+  await page.click("#orgv4 ~ .vid__play"); await sleep(1500);
+  ok((await page.$eval("#orgv4", (v) => v.currentSrc)).endsWith("organizer-4-ru.mp4"), "Russian page plays the Russian file of the fourth organiser video");
+  await page.close();
+}
+
 /* ---------- sector photo belt on phones: it runs to the left and the button pauses it ---------- */
 {
   const page = await browser.newPage();

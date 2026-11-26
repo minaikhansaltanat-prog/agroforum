@@ -31,13 +31,22 @@ window.AGRO = {
     ru: { src: "videos/promo-ru.mp4", poster: "img/poster-promo-ru-540.webp" }
   },
 
+  /* Videos in the organisers' cards whose file depends on the page language. Key = the id of the <video> in index.html;
+     a language that is not listed (zh, uz, ky) gets the "ru" file. */
+  langVideo: {
+    orgv4: {
+      kk: { src: "videos/organizer-4-kk.mp4", poster: "img/poster-organizer-4-kk-540.webp" },
+      ru: { src: "videos/organizer-4-ru.mp4", poster: "img/poster-organizer-4-ru-540.webp" }
+    }
+  },
+
   /* Speaker photos. When a photo arrives, put the file into site/img/speakers/ and add its path here.
      Keys: sp1..sp5 (KazNARU scientists), ss1 (special speaker), gs1, gs2 (guests). Without a photo, initials are shown. */
   speakerPhotos: {
     /* sp1: "img/speakers/sp1.webp", */
   },
 
-  /* People in the three "organisers' address" videos, in the order of the cards. null = not known: the card keeps a general caption.
+  /* People in the four "organisers' address" videos, in the order of the cards. null = not known: the card keeps a general caption.
      Example: { name: "Аты-жөні", role: "Лауазымы" } (role is optional). A text can also be one text per language: { kk: "...", ru: "...", zh: "...", uz: "...", ky: "..." }. */
   videoPeople: [
     {
@@ -68,6 +77,16 @@ window.AGRO = {
         zh: "中亚企业家协会和“KASIPKER”联盟创始人之一",
         uz: "Markaziy Osiyo Tadbirkorlari Assotsiatsiyasi va “KASIPKER” alyansining asoschilaridan biri",
         ky: "Борбордук Азия Ишкерлер Ассоциациясынын жана «KASIPKER» альянсынын негиз салуучуларынын бири"
+      }
+    },
+    {
+      name: { kk: "Бастаубаев Жұмабек Әндешұлы", ru: "Бастаубаев Жумабек Андешевич" },
+      role: {
+        kk: "«KASIPKER» альянсының төрағасы, инвестор, кәсіпкер",
+        ru: "Председатель альянса «KASIPKER», инвестор, предприниматель",
+        zh: "“KASIPKER”联盟主席、投资人、企业家",
+        uz: "“KASIPKER” alyansi raisi, investor, tadbirkor",
+        ky: "«KASIPKER» альянсынын төрагасы, инвестор, ишкер"
       }
     }
   ],
